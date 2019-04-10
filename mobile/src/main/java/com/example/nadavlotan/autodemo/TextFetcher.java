@@ -9,7 +9,9 @@ public class TextFetcher {
 
     private Socket mSocket;
     //    private static final String URL = "https://abcmain.nadavlotan6.now.sh:3000";
-    private static final String URL = "http://10.0.2.2:3000";
+    private static final String URL = "https://abc-app-server-milab2019.herokuapp.com";
+//    private static final String URL = "http://10.0.2.2:3000";
+//    private static final String URL = " http://localhost:5000";
 //    private static final String URL = "http://10.10.75.37:3000";
 
     {
@@ -19,7 +21,6 @@ public class TextFetcher {
             e.printStackTrace();
         }
     }
-
 
     public Socket getmSocket() {
         return mSocket;

@@ -203,6 +203,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
             }
         });
+
+
     }
 
     /**
@@ -251,6 +253,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     enterTextView.setText(serverText);
 
                     Toast.makeText(this, "text successfully saved: " + serverText, Toast.LENGTH_SHORT).show();
+
+                    params.remove("userMessage");
+                    try {
+                        params.put("userMessage", enterTextView.getText());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    mSocket.emit("userMessage", params);
+                    Toast.makeText(MapsActivity.this, "Emitted Succesfully", Toast.LENGTH_LONG).show();
                 }
                 break;
         }
@@ -270,6 +281,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     serverText = (String) args[0];
                     Toast.makeText(MapsActivity.this, serverText, Toast.LENGTH_LONG).show();
                     ttsSpeak();
+
+                    for (int i = 0; i < 8000000; i++) {
+
+                    }
+
+//                    try {
+//                        Thread.sleep(8000);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+
+                    getSpeechInput();
+
 
 //                    try {
 //                        params.remove("userMessage");
